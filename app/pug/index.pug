@@ -1,0 +1,46 @@
+html(xmlns="http://www.w3.org/1999/xhtml")
+
+head
+    script( src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js", type="text/javascript")
+    link( href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" )
+    link( href="/css/index.css" rel="stylesheet" )
+    script( src="/js/index.js", defer, type="text/javascript")
+body
+    .row
+        .col-2.border-r
+            p.nav-title KeyCloak: UI
+            nav.navbar
+                nav.nav.nav-pills.flex-column
+                    a.nav-link( id="login", href="#") login.ftl
+                    nav.nav.nav-pills.flex-column
+                        a.nav-link.ml-3.my-1( id="login-error", href="#" ) with error
+                        a.nav-link.ml-3.my-1( id="login-links", href="#" ) without links
+                        a.nav-link.ml-3.my-1( id="login-linksForgotPassword", href="#" ) without forgot pass
+                        a.nav-link.ml-3.my-1( id="login-linksRegister", href="#" ) without register
+                        a.nav-link.ml-3.my-1( id="login-linksRememberMe", href="#" ) without remember me
+                    a.nav-link( id="change-password", href="#") change-password.ftl
+                    nav.nav.nav-pills.flex-column
+                        a.nav-link.ml-3.my-1( id="change-password-error", href="#" ) with error
+                    a.nav-link( id="current-password", href="#") current-password.ftl
+                    nav.nav.nav-pills.flex-column
+                        a.nav-link.ml-3.my-1( id="current-password-error", href="#" ) with error
+                    a.nav-link( id="error", href="#") error.ftl
+                    a.nav-link( id="forbidden", href="#") forbidden.ftl
+                    a.nav-link( id="info", href="#") info.ftl
+                    a.nav-link( id="login-config-totp", href="#") login-config-totp.ftl
+                    nav.nav.nav-pills.flex-column
+                        a.nav-link.ml-3.my-1( id="login-config-totp-error", href="#" ) with error
+                    a.nav-link( id="login-reset-password", href="#") login-reset-password.ftl
+                    nav.nav.nav-pills.flex-column
+                        a.nav-link.ml-3.my-1( id="login-reset-password-error", href="#" ) with error
+                    a.nav-link( id="login-update-password", href="#") login-update-password.ftl
+                    a.nav-link( id="login-update-profile", href="#") login-update-profile.ftl
+                    nav.nav.nav-pills.flex-column
+                        a.nav-link.ml-3.my-1( id="login-update-profile-notify", href="#" ) with notify
+                    a.nav-link( id="login-verify-email", href="#") login-verify-email.ftl
+                    a.nav-link( id="register", href="#") register.ftl
+        .col-10
+            div( id='selected-template')
+                <iframe id='iframe-template' src="" seamless></iframe>
+                
+
