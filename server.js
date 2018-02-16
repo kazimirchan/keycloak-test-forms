@@ -9,13 +9,9 @@ app.get('/', (request, response) => {
   response.sendFile(__dirname + '/dist/views/index.html');   
 });
 
-app.get('/:formName/:formMode', (request, response) => { 
-  param = {
-    formName: request.params['formName'],
-    formMode: request.params['formMode']
-  }
-  console.log(`Try getting form ${param.formName} with mode ${param.formMode}.`);
-  jsonToHtml(path.resolve(__dirname, themePath), param);
+app.get('/:formName', (request, response) => { 
+  console.log(`Try getting form ${request.params['formName']}.`);
+  jsonToHtml(path.resolve(__dirname, themePath), request.params['formName']);
 });
 
 app.get('/debug', (request, response) => { 

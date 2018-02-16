@@ -10,7 +10,8 @@
   "author": "evgeniia mitrakhova",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.2"
+    "express": "^4.16.2",
+    "ftl2html": "^1.2.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
