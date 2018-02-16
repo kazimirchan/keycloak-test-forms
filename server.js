@@ -1,16 +1,26 @@
 var express = require('express');
 var path = require('path');
 var app = express();
+var themePath = 'cardpay-open-sans/';
+var jsonToHtml = require('./utils/jsonToHtml');
 
 app.use('/', express.static(path.resolve(__dirname + '/dist/public')));
 app.get('/', (request, response) => {
-  response.sendFile(__dirname + '/dist/views/index.html');
-  // response.sendFile(__dirname + '/dist/views/index.html');   
+  response.sendFile(__dirname + '/dist/views/index.html');   
 });
+
 app.get('/:formName/:formMode', (request, response) => { 
-  console.log(`Try getting form ${formName} with mode ${formMode}.`);
+  param = {
+    formName: request.params['formName'],
+    formMode: request.params['formMode']
+  }
+  console.log(`Try getting form ${param.formName} with mode ${param.formMode}.`);
+  jsonToHtml(path.resolve(__dirname, themePath), param);
 });
-app.get('/debug', (request, response) => {
-  response.sendFile('h1');
+
+app.get('/debug', (request, response) => { 
+  jsonToHtml(path.resolve(__dirname, themePath), null);
 });
+
+
 app.listen(3030);

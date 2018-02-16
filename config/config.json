@@ -1,0 +1,94 @@
+{
+  "template": {
+    "properties": {
+      "meta": "viewport==width=device-width,initial-scale=1",
+      "styles": "css/login.css css/media.css css/inputs.css",
+      "scripts": "scripts/script.js"
+    },
+    "url": {
+      "resourcesPath": "/html",
+      "loginAction": "login",
+      "loginResetCredentialsUrl": "loginResetCredentialsUrl",
+      "registrationUrl": "registrationUrl",
+      "loginRestartFlowUrl": "#",
+      "loginUrl": "123"
+    },
+    "realm": {
+      "displayName": "Realm",
+      "password": true,
+      "loginWithEmailAllowed": true,
+      "rememberMe": true,
+      "resetPasswordAllowed": true,
+      "registrationAllowed": true,
+      "registrationEmailAsUsername": true
+    },
+    "login": {
+        "username": "",
+        "password": "",
+        "rememberMe": "",
+        "loginUrl": "123"
+    },
+    "action": {
+      "submitUrl": "submitUrl",
+      "stateChecker": "stateChecker"
+    },
+    "totp": {
+        "totpSecretQrCode": "",
+        "totpSecretEncoded": "",
+        "totpSecret": ""
+    },
+    "user": {
+        "editUsernameAllowed": true,
+        "firstName": "userFirstName",
+        "lastName": "userLastName"
+    },
+    "messagesPerField": {
+        "printIfExists": {
+            "username": "123",
+            "email": "email",
+            "firstName": "First Name",
+            "lastName": "Last Name"
+        }
+    }
+  },
+  "change-password": {
+    "error": {
+      "message": {
+        "type": "error",
+        "summary":  "Something is wrong"
+      }
+    },
+    "without-links": {
+      "realm": {
+        "resetPasswordAllowed": false,
+        "registrationAllowed": false
+      }
+    },
+    "email-as-username": {
+      "realm": {
+        "registrationEmailAsUsername": true
+      }
+    },
+    "without-forgot-pass": {
+    },
+    "without-register": {
+    },
+    "without-remember-me": {}
+  },
+  "tddFroms": [
+    "change-password",
+    "code",
+    "current-password",
+    "error",
+    "forbidden",
+    "info",
+    "login-config-totp",
+    "login-page-expired",
+    "login-reset-password",
+    "login-update-password",
+    "login-update-profile",
+    "login-verify-email",
+    "login",
+    "register"
+  ]
+}
