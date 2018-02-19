@@ -2,3 +2,6 @@
 /dist
 /cardpay-open-sans
 /utils/tdd
+/logFile
+/package-lock.json
+/package.json
