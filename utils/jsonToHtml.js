@@ -1,6 +1,7 @@
 var tddJsonConfig = require('../config/config.json');
 var path = require('path');
 var fs = require('fs');
+var fse = require('fs-extra');
 var ftl2html = require('ftl2html');
 
 /**
@@ -10,7 +11,7 @@ var ftl2html = require('ftl2html');
  */
 module.exports = function jsonToHtml(pathToTheme, currentFile) {
   if (typeof pathToTheme !== "string" || typeof currentFile !== "string") {
-    throw new Error('jsonToHtml: Invalid path to theme');
+    throw new Error('jsonToHtml: Invalid path to theme: ' + pathToTheme + ' ' + currentFile);
   }
   fs.readFile(path.resolve(pathToTheme, 'login/messages/messages_en.properties'), 'utf-8', (err, data) => {
     if (!!err) {
@@ -19,13 +20,14 @@ module.exports = function jsonToHtml(pathToTheme, currentFile) {
     // Preparations for generating
     var msg = parsePropFile(data);
     var ftlVar = createTddFile(tddJsonConfig, msg, currentFile);
-    // ftlVar = generateConfiguration(ftlVar);
+    
     // Generate HTML file
     // viewRoot - root for ftl files
     fs.writeFile(path.join(__dirname, '../utils/tdd', currentFile + '.tdd'), JSON.stringify(ftlVar,null, 4), () => {
+      copyRequiredStyles(path.resolve(pathToTheme, 'login'), path.join(__dirname, '../dist/html/'));
       ftl2html(path.resolve(pathToTheme, 'login') , path.join(__dirname, '../dist/html/') , currentFile + '.ftl', path.join(__dirname, '../utils/tdd/', currentFile + '.tdd'), 'logFile');
     });  
-    
+
   });
 };
 
@@ -77,4 +79,19 @@ function createTddFile(jsonConfig, msgBlock, requiredFile) {
   });
   
   return requiredMode;
+}
+
+/**
+ * @description 
+ * @param {*} pathToTemplates 
+ * @param {*} outputPath
+ */
+function copyRequiredStyles(pathToTemplates, outputPath) {
+  var resourcePath = path.resolve(pathToTemplates, 'resources');
+  if (typeof pathToTemplates !== "string" || !fs.existsSync(resourcePath)) {
+    throw new Error('Cannot copy static files with bad path : ' + resourcePath);
+  }
+  if (!fs.existsSync(path.resolve(outputPath, 'css'))) {
+    fse.copy(resourcePath, outputPath);
+  }
 }
