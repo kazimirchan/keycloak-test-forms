@@ -1,5 +1,20 @@
 {
   "template": {
+    "messagesPerField": {
+      "printIfExists": {
+          "username": "123",
+          "email": "email",
+          "firstName": "firstName",
+          "lastName": "lastName",
+          "siteUrl" : "",
+          "password": "",
+          "password-confirm": "",
+          "company": ""
+      }
+    },
+    "passwordRequired": true,
+    "recaptchaRequired": false,
+    "recaptchaSiteKey": "",
     "properties": {
       "meta": "viewport==width=device-width,initial-scale=1",
       "styles": "css/login.css css/media.css css/inputs.css",
@@ -41,39 +56,154 @@
         "editUsernameAllowed": true,
         "firstName": "userFirstName",
         "lastName": "userLastName"
+    }
+  },
+  "login": {
+    "": {
+      "realm": {
+        "loginWithEmailAllowed":false,
+        "rememberMe": false,
+        "resetPasswordAllowed": false,
+        "registrationAllowed": false,
+        "registrationEmailAsUsername": true
+      }
     },
-    "messagesPerField": {
-        "printIfExists": {
-            "username": "123",
-            "email": "email",
-            "firstName": "First Name",
-            "lastName": "Last Name"
-        }
+    "error": {
+      "message": {
+        "type": "error",
+        "summary":  "This is fake error message"
+      }
+    },
+    "links": {
+      "realm": {
+        "resetPasswordAllowed": true,
+        "registrationAllowed": true
+      }
+    },
+    "linksForgotPassword": {
+      "realm": {
+        "resetPasswordAllowed": true,
+        "registrationAllowed": false
+      }
+    },
+    "linksRegister": {
+      "realm": {
+        "resetPasswordAllowed": false,
+        "registrationAllowed": true
+      }
+    },
+    "linksRememberMe": {
+      "realm": {
+        "rememberMe": true
+      }
+    },
+    "emailAsUsername": {
+      "realm": {
+        "loginWithEmailAllowed": true
+      }
     }
   },
   "change-password": {
+    "": {},
     "error": {
       "message": {
         "type": "error",
         "summary":  "Something is wrong"
       }
-    },
-    "without-links": {
-      "realm": {
-        "resetPasswordAllowed": false,
-        "registrationAllowed": false
+    }
+  },
+  "current-password": {
+    "": {},
+    "error": {
+      "message": {
+        "type": "error",
+        "summary":  "Something is wrong"
+      }
+    }
+  },
+  "error": {
+    "": {
+      "message": {
+        "type": "info",
+        "summary":  "This is fake error-page message"
       }
     },
-    "email-as-username": {
-      "realm": {
-        "registrationEmailAsUsername": true
+    "client": {
+      "client": {
+        "baseUrl": "123"
       }
+    }
+  },
+  "forbidden": {
+    "": {
+      "client": {
+        "backUrl": "123",
+        "reauthUrl": "reauthUrl"
+      }
+    }
+  },
+  "info": { 
+    "": {
+      "message": {
+        "type": "info",
+        "summary":  "This is fake info-page message"
+      },
+      "skipLink": true,
+      "pageRedirectUri": "123",
+      "client": {
+        "baseUrl": "123",
+        "reauthUrl": "reauthUrl"
+      }
+    }
+  },
+  "login-config-totp": {
+    "": {
+      "totp": {
+        "totpSecretQrCode": "iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2AQAAAADNaUdlAAACWElEQVR42u2YvW4EMQiE3fHK7qDjlSkiOTPjLXZzUTrTZFfKz923BTLDAB7rz+drvPzlL//fPMawFdPKEx8sbKW+6uL4NsvLYw7LrDkmX8w+HoYP5FYDKMD1VSNPfI3oEBzOp6ydx5zGRA1HeqKZMz+2CvEtxFnT12f+DnKKMZ/Ph35P8rUPyVeoTBBiftbvQR4OWepImKCp6sDbjTxQEBAmUBnfoUgbOetxkF2VSqEowCaOqmB6qEx4FEq0WC2N3OjK1CVypD88rjZOd2Zd6tc0yMXW/XxOc1YGJAppwp/ZHPBQsV2c4kBZQhb8xxc71D0/pzlbE6QJkRSAnt2rm3hyIliEjA0Jmjwp6+PoDuWMkolK/Tz6x2GOAqEyJsuSVhk/83Oeoxp1MhwRYBB8vI3XVF/SWzIG9qmbP5zmMiW6wtWY6c9xj/8wV3xUpefWqeVn/Af5kjfJpId8mrQaOadzShMmxRJht5qjj5caAmqUU8Hl1FgXGnkyPEoEOVpMVD3q4zBnflwTuiYkuvPcA1IPz9yOrC7hwT65Hv3xMF97NWSUtAn2Jjh2NnLFQ3egSzFb3BgaOady5kjHolaV5W08tJEzNc4qGTSqvO8nh/n2Z9uWrDUJOp3exmHI5TvKuLazpz8d5lmaz/ditJvToz+f5teOUFN3I1P1mWVtPPY+yAlJKtE1Ua42npdAGBN3RdZrhvVxIS5IoTnNtaZ7K2dg7NN7OeY14WrlbJCKznk9FKqYNs5XOJGXFnONqD/1cZLv+ynekTgXxKEAp7fx937+5S9/+S/8G1muZTjRUIP4AAAAAElFTkSuQmCC",
+        "totpSecretEncoded": "OFFW O22H NFSU 4MLI KBLE 6SZT KVKG 44TU",
+        "totpSecret": ""
+    }
     },
-    "without-forgot-pass": {
-    },
-    "without-register": {
-    },
-    "without-remember-me": {}
+    "error": {
+      "message": {
+        "type": "error",
+        "summary":  "Something is wrong"
+      }
+    }
+  },
+  "login-reset-password": {
+    "": {},
+    "error": {
+      "message": {
+        "type": "error",
+        "summary":  "Something is wrong"
+      }
+    }
+  },
+  "login-update-password": {
+    "": {}
+  },
+  "login-update-profile": {
+    "": {}
+  },
+  "login-verify-email": {
+    "": {
+      "message": {
+        "type": "info",
+        "summary":  "This is fake NOTIFY massege"
+      }
+    }
+  },
+  "register": {
+    "": {
+      "url": {
+        "registrationUrl": "registrationUrl",
+        "registrationAction": "registrationAction"
+      },
+      "register": {
+        "formData" : ""
+    }
+    }
   },
   "tddFroms": [
     "change-password",
